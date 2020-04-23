@@ -1,0 +1,37 @@
+{
+  "name": "node-babel-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "install": "concurrently \"yarn\" \"cd public & yarn\"",
+    "start": "concurrently \"node build\" \"node public/build\"",
+    "dev": "concurrently \"nodemon --exec babel-node src\" \"cd public & yarn start\"",
+    "build": "babel ./src --out-dir build",
+    "test": "echo \"No test specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/plugin-transform-regenerator": "^7.8.7",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "concurrently": "^5.1.0",
+    "nodemon": "^2.0.3"
+  },
+  "dependencies": {
+    "apollo-server": "^2.12.0",
+    "apollo-server-express": "^2.12.0",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "graphql": "^15.0.0",
+    "knex": "^0.21.0",
+    "pg": "^8.0.2"
+  }
+}
