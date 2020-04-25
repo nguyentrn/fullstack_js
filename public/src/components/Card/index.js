@@ -4,12 +4,12 @@ import { CardContainer } from './style';
 
 const Card = (props) => {
   return (
-    <CardContainer>
+    <CardContainer onClick={props.handleClick}>
       <div>
-        {props.cpu.name}
-        {props.cpu.id}
+        {props.item.id}
+        {props.item.name}
       </div>
-      <Image src={props.cpu.img_url[1]} />
+      <Image src={props.item.thumbnail_img} />
     </CardContainer>
   );
 };

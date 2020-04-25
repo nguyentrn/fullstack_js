@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "install": "concurrently \"yarn\" \"cd public & yarn\"",
     "start": "concurrently \"node build\" \"node public/build\"",
+    "server": "nodemon --exec babel-node src",
     "dev": "concurrently \"nodemon --exec babel-node src\" \"cd public & yarn start\"",
     "build": "babel ./src --out-dir build",
     "test": "echo \"No test specified\" && exit 0"
@@ -31,6 +31,7 @@
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "graphql": "^15.0.0",
+    "graphql-type-json": "^0.3.1",
     "knex": "^0.21.0",
     "pg": "^8.0.2"
   }

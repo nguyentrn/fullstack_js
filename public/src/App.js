@@ -1,26 +1,29 @@
 import React from 'react';
-import { useQuery, gql } from '@apollo/client';
-import CardList from './components/CardList';
+// import { useQuery, gql } from '@apollo/client';
+import ListPage from './pages/ListPage';
 import { AppContainer } from './App.style';
+import Navbar from './components/Navbar';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from 'react-router-dom';
 
-const GET_CPUS = gql`
-  {
-    cpus {
-      name
-      id
-      img_url
-    }
-  }
-`;
+const types = ['cpu', 'laptop'];
 
 function App() {
-  const { loading, error, data } = useQuery(GET_CPUS);
-  if (loading) return <div>Loading</div>;
-  if (error) return <div>Error</div>;
   return (
     <AppContainer>
-      <div>Danh sach CPU</div>
-      <CardList cpus={data.cpus} />
+      <Router>
+        <Navbar types={types}></Navbar>
+        <Switch>
+          {types.map((type) => (
+            <Route path={`/${type}`}>
+              <ListPage type={type} />
+            </Route>
+          ))}
+        </Switch>
+      </Router>
     </AppContainer>
   );
 }
