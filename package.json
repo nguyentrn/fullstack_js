@@ -4,10 +4,12 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "concurrently \"node build\" \"node public/build\"",
+    "start": "node build",
+    "startS": "concurrently \"node build\" \"node public/build\"",
     "server": "babel-node src",
     "dev": "concurrently \"nodemon --exec babel-node src\" \"cd public & yarn start\"",
     "build": "babel ./src --out-dir build",
+    "heroku-postbuild": "concurrently \"babel ./src --out-dir build\" \"cd public & yarn build\"",
     "test": "echo \"No test specified\" && exit 0"
   },
   "keywords": [],

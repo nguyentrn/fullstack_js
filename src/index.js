@@ -25,7 +25,7 @@ server.applyMiddleware({ app, path: '/graphql' });
 app.use(cors());
 
 //
-app.get('/', (req, res) => res.send('!'));
+// app.get('/', (req, res) => res.send('!'));
 app.get('/getCpus', async (req, res) => {
   try {
     const data = await pg('luxstay_hotels').select('*').limit(50);
@@ -34,6 +34,8 @@ app.get('/getCpus', async (req, res) => {
     console.log(err);
   }
 });
+
+app.use('/', express.static('public/build'));
 
 app.listen({ port: 4000 }, () =>
   console.log(
