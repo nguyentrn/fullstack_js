@@ -18,24 +18,23 @@ const server = new ApolloServer({
 
     return { db };
   },
+  introspection: true,
+  playground: true,
 });
 server.applyMiddleware({ app, path: '/graphql' });
 
 //Express Middleware
 app.use(cors());
 
-//
-// app.get('/', (req, res) => res.send('!'));
-app.get('/getCpus', async (req, res) => {
+app.get('/test', async (req, res) => {
   try {
-    const data = await pg('luxstay_hotels').select('*').limit(50);
-    res.send(data);
+    res.send('App chay');
   } catch (err) {
     console.log(err);
   }
 });
 
-app.use('/', express.static('public/build'));
+app.use('/react', express.static('public/build'));
 
 app.listen({ port: process.env.PORT || 4000 }, () =>
   console.log(
