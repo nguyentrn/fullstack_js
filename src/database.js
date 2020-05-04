@@ -1,7 +1,7 @@
 import knex from 'knex';
 import 'dotenv/config';
 
-const pg = knex({
+const db = knex({
   client: 'pg',
   connection: {
     host: process.env.DATABASE_HOST,
@@ -21,4 +21,4 @@ const pg = knex({
     propagateCreateError: false, // <- default is true, set to false
   },
 });
-module.exports = pg;
+module.exports = db;

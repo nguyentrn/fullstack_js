@@ -9,15 +9,14 @@ const CardList = (props) => {
   const history = useHistory();
 
   const handleClick = (url) => {
-    console.log(url);
     history.push(`${match.path}/${url}`);
   };
 
   return (
     <CardListContainer>
-      {props.items.map((item) => (
+      {props.items.map((item, id) => (
         <Card
-          key={item.id}
+          key={id}
           item={item}
           handleClick={() => handleClick(`${item.id}-${item.url}`)}
         />

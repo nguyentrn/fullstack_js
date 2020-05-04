@@ -9,7 +9,19 @@ import {
   Route,
 } from 'react-router-dom';
 
-const types = ['cpu', 'laptop'];
+const types = [
+  'cpu',
+  'mobile-chipset',
+  'graphics-card',
+  'motherboard',
+  'ssd',
+  'router',
+  'monitor',
+  'laptop',
+  'headphone',
+  'phone',
+  'tablet',
+];
 
 function App() {
   return (
@@ -18,7 +30,7 @@ function App() {
         <Navbar types={types}></Navbar>
         <Switch>
           {types.map((type) => (
-            <Route path={`/${type}`}>
+            <Route key={type} path={`/${type}`}>
               <ListPage type={type} />
             </Route>
           ))}

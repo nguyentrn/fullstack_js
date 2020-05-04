@@ -5,8 +5,8 @@ const Navbar = (props) => {
   return (
     <NavbarContainer>
       {props.types.map((type) => (
-        <StyledNavLink to={`/${type}`}>
-          Danh sach {type}
+        <StyledNavLink key={type} to={`/${type}`}>
+          {type.toUpperCase()}
         </StyledNavLink>
       ))}
     </NavbarContainer>

@@ -1,12 +1,15 @@
 import { gql } from '@apollo/client';
 
 const GET_ITEMS = gql`
-  query items($type: String!, $page: Int!) {
-    items(type: $type, page: $page) {
+  query items($type: String!, $page: Int!, $sortBy: Int) {
+    summary(type: $type)
+    itemPropCategories(type: $type)
+    items(type: $type, page: $page, sortBy: $sortBy) {
       id
       name
       url
       thumbnail_img
+      rating
     }
   }
 `;
@@ -17,6 +20,15 @@ const GET_ITEM = gql`
       name
       url
       large_img
+      rating
+      properties {
+        name
+        display_name
+        kind
+        value
+        category
+        unit
+      }
     }
   }
 `;

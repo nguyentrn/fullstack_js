@@ -4,8 +4,16 @@ const ListPageContainer = styled.div`
   width: auto;
   display: flex;
   flex-direction: column;
-  justify-contents: space-around;
-  background: #eeeeee;
+  justify-content: space-around;
 `;
 
-export { ListPageContainer };
+const PageIndexes = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+const PageIndex = styled.div`
+  margin: 1rem;
+  cursor: pointer;
+  font-weight: ${(props) => (props.isActived ? '700' : '400')};
+`;
+export { ListPageContainer, PageIndexes, PageIndex };
